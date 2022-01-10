@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Test</h1>
+    <div>
+        <p>{{ "now"|date('Y') }}</p>
+
+        {#
+        Un commentaire qui ne s'affiche pas dans le navigateur.
+        Création d'une variable et affichage.
+        #}
+        {% set name = "Maxime" %}
+        <h2>{{ name|upper }}</h2>
+
+        {# Création d'un tableau et affichage #}
+        {% set colors = ["Red", "violet", "Turquoise", "LightGreen"] %}
+        <p>Nombre de couleur: {{ colors|length }}</p>
+        <p>{{ colors|join(' / ') }}</p>
+        {% for color in colors %}
+            <div> {{ loop.index }}</div>
+            <div style="background-color: {{ color }}">{{ color }}</div>
+        {% else %}
+            <p>Il n'y a pas de couleur. C'est triste.</p>
+        {% endfor %}
+
+        {# Création d'un objet et affichage  #}
+        {% set personne = {
+            nom:'Deterre',
+            prenom:'Bertrand',
+            age:25 }
+        %}
+        <h3>{{ personne.nom }} {{ personne.prenom }}</h3>
+        <div>
+            {% for key, value in personne %}
+                <p>{{ key }} : {{ value }}</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block title %}{{ parent() }} | Test{% endblock %}
