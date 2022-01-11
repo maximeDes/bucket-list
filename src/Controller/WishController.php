@@ -24,7 +24,7 @@ class WishController extends AbstractController
     }
 
     /**
-     * @Route("/details/{id}", name="details")
+     * @Route("/details/{id}", name="details", requirements={"id"="\d+"})
      */
     public function details(int $id): Response
     {
