@@ -3,11 +3,12 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/series", name="serie_")
+ * @Route("/series", name="serie_demo_")
  *
  */
 class SerieController extends AbstractController
@@ -37,8 +38,9 @@ class SerieController extends AbstractController
     /**
      * @Route("/create", name="create")
      */
-    public function create(): Response
+    public function create(Request $request): Response
     {
+        dump($request);
         //todo: créer une séries a ajouté en BDD
         return $this->render('serie/create.html.twig', [
 

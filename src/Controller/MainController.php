@@ -33,12 +33,10 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/demo", name="main_demo")
+     * @Route("/about-us", name="main_about_us")
      * */
-    public function demo():Response{
-        return $this-> render('main/demo.html.twig', [
-            "autreVar"=> 42,
+    public function aboutUs():Response{
+        return $this-> render('main/about_us.html.twig', [
         ]);
-
     }
 }
