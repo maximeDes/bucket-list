@@ -6,6 +6,9 @@
 
 {% block body %}
     <h2>Liste de souhait.</h2>
-    {# todo: Créer une liste de souhaits #}
-    todo: créer une liste de souhaite
+   <ul>
+    {% for wish in wishs %}
+        <li><a href="{{ path('wish_details', {'id': wish.id}) }}" title="Un souhait.">{{ wish.title }}</a></li>
+    {% endfor %}
+   </ul>
 {% endblock %}

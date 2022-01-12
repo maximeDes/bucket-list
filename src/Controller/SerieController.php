@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Wish;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,9 +41,28 @@ class SerieController extends AbstractController
     /**
      * @Route("/create", name="create")
      */
-    public function create(Request $request): Response
+    public function create(EntityManagerInterface $entityManager): Response
     {
-        dump($request);
+        // créer une instance de mon entité
+        $wish = new Wish();
+
+        // hydrater tout les instances de mon entité
+        $wish->setTitle('Sauter en parachute');
+        $wish->setDescription('Ca doit être super de sauter en parachute.');
+        $wish->setAuthor('Kevin');
+        $wish->setIsPubliched(0);
+        $wish->setDateCreated(new \DateTime());
+
+        dump($wish);
+
+        $entityManager->persist($wish);
+        $entityManager->flush();
+
+       // $entityManager->remove($wish);
+
+
+        $entityManager->flush();
+
         //todo: créer une séries a ajouté en BDD
         return $this->render('serie/create.html.twig', [
 
