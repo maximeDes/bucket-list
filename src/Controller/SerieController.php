@@ -43,7 +43,7 @@ class SerieController extends AbstractController
      */
     public function create(EntityManagerInterface $entityManager): Response
     {
-        // créer une instance de mon entité
+/*       // créer une instance de mon entité
         $wish = new Wish();
 
         // hydrater tout les instances de mon entité
@@ -62,7 +62,7 @@ class SerieController extends AbstractController
 
 
         $entityManager->flush();
-
+*/
         //todo: créer une séries a ajouté en BDD
         return $this->render('serie/create.html.twig', [
 
