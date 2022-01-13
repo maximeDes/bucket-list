@@ -8,8 +8,8 @@
     <title>{% block title %} Bucket-list {% endblock %}</title>
 
     {# Les classes CSS utilisées  #}
-    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
 
     {# Le Favicon #}
     <link rel="icon" href="{{ asset('img/favicon.png') }}">
@@ -21,6 +21,16 @@
         <h1><a href="{{ path('main_home') }}"><img src="{{ asset('img/logo.png') }}" alt="Bucket-list">Bucket-list</a></h1>
         {% include('inc/nav.html.twig') %}
     </header>
+
+       {# read and display all flash messages #}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
        {# Espace du main avec tout ce qu'il faut dedans #}
     <main>
         {% block body %}{% endblock %}

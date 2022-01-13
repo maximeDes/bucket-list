@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\WishRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=WishRepository::class)
@@ -18,16 +19,21 @@ class Wish
     private $id;
 
     /**
+     * @Assert\NotBlank(message="Le champ ne peut pas être vide")
+     * @Assert\Length(max=250, min=2, maxMessage="Vous ne pouvez pas dépasser 250 caractères.", minMessage="vous ne pouvez pas avoir moins de 2 caracètres.")
      * @ORM\Column(type="string", length=250)
      */
     private $title;
 
     /**
+     * @Assert\Length(max=500, maxMessage="Vous ne pouvez pas dépasser 500 caractères")
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
     /**
+     * @Assert\NotBlank(message="Le champ ne peut pas être vide")
+     * @Assert\Length(max=50, maxMessage="Vous ne pouvez pas dépasser 50 caractères.", min=2,  minMessage="vous ne pouvez pas avoir moins de 2 caracètres.")
      * @ORM\Column(type="string", length=50)
      */
     private $author;
