@@ -16,8 +16,17 @@ body {
 .flash-success {
     background-color: darkseagreen;
 }
+p {
+    font-size: 25px;
+}
+
+#bouton {
+    padding: 5px;
+    margin-top: 10px;
+}
 
 button {
+    background-color: lightseagreen;
     padding: 5px;
 }
 
@@ -30,7 +39,7 @@ input, textarea {
     margin-bottom: 1rem;
     box-sizing: border-box;
     max-width: 50%;
-    width: 150px;
+    width: 300px;
 }
 
 .container {

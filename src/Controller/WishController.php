@@ -51,6 +51,8 @@ class WishController extends AbstractController
                 $wish = new Wish();
                 $wish->setIsPubliched(1);
                 $wish->setDateCreated(new \DateTime());
+                $currentUserName = $this->getUser()->getPseudo();
+                $wish->setAuthor($currentUserName);
 
                 // Créer une instance de mon formulaire
                 $wishForm = $this -> createForm(WishType::class, $wish);

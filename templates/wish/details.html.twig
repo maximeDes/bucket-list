@@ -5,9 +5,13 @@
 {% endblock %}
 
 {% block body %}
-    <h1> Détails du souhait : {{ wish.title }}.</h1>
+    <h2> Détails du souhait : {{ wish.title }} || {{ wish.categorie.name }} .</h2>
+    {% if not wish.description %}
+        <p>Il n'y a aucune description.</p>
+    {% else %}
+        <p>{{ wish.description }}</p>
+    {% endif %}
     <h4>Created by {{ wish.author }} on {{  wish.dateCreated|date('d/m/Y') }}.</h4>
-    <p>{{ wish.description }}</p>
 {% endblock %}
 
 
